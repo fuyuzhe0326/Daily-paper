@@ -1,5 +1,5 @@
 Exit code: 0
-Wall time: 0.6 seconds
+Wall time: 0.8 seconds
 Output:
 # Daily paper · 每日文献日报
 
@@ -7,7 +7,7 @@ Output:
 >
 > 把前一天的高质量论文变成双语、可追溯、与研究方向直接相关的文献日报。
 
-[English](#english) · [中文](#中文) · [Quick start](#quick-start--快速开始) · [Contributing](#contributing--参与贡献)
+[English](#english) · [中文](#中文) · [Zotero](#zotero-integration--zotero-联动) · [Quick start](#quick-start--快速开始) · [Contributing](#contributing--参与贡献)
 
 **Suggested GitHub topics:** `codex-skill` · `literature-review` · `research-automation` · `academic-research` · `zotero` · `outlook` · `bilingual`
 
@@ -60,6 +60,74 @@ In a nine-run petroleum-fracturing test, seven runs selected a high-tier English
 | Materials & biomedicine · 材料与生物医学 | Track a material, mechanism, disease, intervention, or assay; separate journal articles from preprints and flag full-text access states. |
 
 The same workflow can be configured for any research direction with your required terms, exclusions, language coverage, email, delivery time, archive location, and Zotero collection.
+
+## Zotero integration · Zotero 联动
+
+### The practical advantage · 核心亮点
+
+Most daily-literature tools stop at an email or a spreadsheet. Daily paper also leaves a structured, reproducible route into your local Zotero library:
+
+```mermaid
+flowchart LR
+    A["Selected daily papers"] --> B["references.ris<br/>daily_index.json"]
+    B --> C["Zotero parent collection"]
+    C --> D["YYYY-MM-DD subcollection"]
+    D --> E["Metadata + lawful OA PDFs only"]
+```
+
+This makes the email a reading brief and Zotero the durable research library. The same paper can then be searched, tagged, cited in a manuscript, and reviewed alongside the exact daily report that selected it.
+
+日报负责“今天该读什么”；Zotero 负责“以后如何检索、引用与复用”。每日报只写入当天的 RIS 题录和已合法取得的 PDF，避免把无关候选、重复 DOI 或未验证附件混进你的主库。
+
+### What is created each day · 每天会生成什么
+
+| Location | Content | Purpose |
+| --- | --- | --- |
+| Local dated archive | `references.ris` | Standard bibliographic exchange file; can be imported into Zotero even if the local API is unavailable. |
+| Local dated archive | `daily_index.json` | Machine-readable source, DOI, status, archive path, and Zotero-item tracking data for de-duplication/retry. |
+| Zotero parent collection | One collection for the configured topic | Keeps this project separate from your broader library. |
+| Zotero date subcollection | One `YYYY-MM-DD` child collection per run | Lets you trace exactly which papers came from a given daily brief. |
+| Zotero items | Bibliographic records and lawful OA PDFs, when available | Keeps metadata and legally obtained attachments together. |
+
+### First-time setup · 首次准备
+
+1. Install and open **Zotero Desktop**.
+2. Ensure Zotero's local API/connector is available. In Codex, use the Zotero integration to check status; if asked, allow it to enable the local API and restart Zotero.
+3. Choose a parent collection name, for example `Daily literature · Proppant transport` or `每日文献 · 深度学习`.
+4. During Daily paper configuration, give this parent-collection name and explicitly authorize the RIS import target.
+5. Run one manual test. Confirm that the parent collection, date subcollection, and imported records match the day archive before enabling a schedule.
+
+### Copy-paste configuration prompt · 可直接复制的配置提示词
+
+```text
+Use $daily-proppant-literature-brief to configure a daily literature brief.
+Research direction: [your research direction and key terms].
+Recipient email: [your email].
+Delivery time and timezone: [for example, 08:00 Asia/Shanghai].
+Archive directory: [your local directory].
+Zotero parent collection: [for example, Daily literature · My topic].
+First check whether Zotero Desktop and its local API are ready.
+After I confirm the destination collection, import each day's generated references.ris
+into the matching YYYY-MM-DD Zotero subcollection. Attach only lawfully obtained OA PDFs.
+Use my already-authorized Outlook connection and institutional access only.
+```
+
+### Daily behavior and safeguards · 每日行为与边界
+
+- **De-duplicate before import:** use DOI, title, and preprint identifier; an import failure must not silently create repeat records on the next run.
+- **Keep collections intelligible:** first create or verify the parent collection, then create/use the date subcollection.
+- **Separate metadata from access:** a citation can enter Zotero without a PDF. PDFs are attached only when legitimately open access or obtained through an already-authorized institutional session.
+- **Never bypass access controls:** a login, CAPTCHA, MFA, payment, licensing gate, or unavailable school session becomes a clearly labelled manual step—not an automated download.
+- **Degrade safely:** if Zotero or its local API is unavailable, Daily paper still saves `references.ris` and the daily index. Open Zotero later and import that RIS manually; do not lose the day's bibliography.
+
+### How to use the result · 导入后怎么用
+
+1. Open the configured Zotero parent collection, then the date subcollection.
+2. Use the paper card in the email or `daily_report.txt` to decide which papers deserve full reading.
+3. Add your own tags, notes, or collections in Zotero without changing the daily archive.
+4. When writing, search the Zotero library or export BibTeX/RIS from Zotero; the daily selection provenance remains available in `daily_index.json`.
+
+> Note: Zotero item keys and BibTeX citation keys are different identifiers. The daily index should record the Zotero item key when available; do not treat it as a manuscript citation key.
 
 ## Quick start · 快速开始
 
