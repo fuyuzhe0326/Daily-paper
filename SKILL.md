@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.7 seconds
-Output:
 ---
 name: daily-proppant-literature-brief
 description: Create a configurable daily Chinese-English literature brief for a user-defined research topic. Use when Codex needs to discover previous-day papers, rank high-authority Chinese and English journals, archive RIS and a daily index, obtain lawful full text, import into Zotero, or email a literature digest at a user-selected local time.
@@ -13,10 +10,11 @@ description: Create a configurable daily Chinese-English literature brief for a 
 When a user invokes this skill for the first time or says they have just installed it, begin with this exact onboarding message and wait for the reply:
 
 ```text
-娆㈣繋浣跨敤 Daily paper銆傝鍛婅瘔鎴戜笁椤逛俊鎭細
-1. 浣犵殑鐮旂┒鏂瑰悜鍜屽笇鏈涜拷韪殑鍏抽敭璇嶏紱
-2. 鎺ユ敹鏃ユ姤鐨勯偖绠憋紱
-3. 姣忔棩鍙戦€佹椂闂村拰鏃跺尯锛堜緥濡?08:00锛孉sia/Shanghai锛夈€?```
+欢迎使用 Daily paper。请告诉我三项信息：
+1. 你的研究方向和希望追踪的关键词；
+2. 接收日报的邮箱；
+3. 每日发送时间和时区（例如 08:00，Asia/Shanghai）。
+```
 
 Do not create an automation, send a test email, or assume any of these three values until the user supplies and confirms them. Then ask only for any remaining optional settings needed for the requested workflow.
 
@@ -46,7 +44,7 @@ Never put these values, passwords, cookies, institutional account details, or to
 - Separate English and Chinese journal records; give English title plus Chinese title, then English abstract followed by Chinese translation.
 - Begin prose paragraphs with two full-width spaces and leave blank lines between records.
 - State zero results honestly; do not fill a day with older articles.
-- If Chinese-source status is incomplete, state that the Chinese search was not completed and that no conclusion about Chinese literature can be drawn. Do not silently display `鏃犵鍚堟潯浠惰褰昤.
+- If Chinese-source status is incomplete, state that the Chinese search was not completed and that no conclusion about Chinese literature can be drawn. Do not silently display `无符合条件记录`.
 - Mark unverified indexing/metrics, unavailable full text, and manual steps explicitly.
 - Do not claim a paper proves a mechanism beyond its reported methods and results.
 
