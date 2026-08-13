@@ -28,7 +28,7 @@ Never put these values, passwords, cookies, institutional account details, or to
 5. For each retained record, provide title translation, authors, journal/type, a traceable JCR impact factor or clearly named proxy metric, DOI/publisher URL, source abstract, Chinese abstract translation, methods, findings, and a bounded statement of relevance to the configured topic.
 6. Run `scripts/daily_digest.py` with explicit `--archive-root` and `--recipient`, then inspect `daily_report.txt` and `references.ris`.
 7. Download only lawfully available OA PDFs. Use an existing institutional browser session only; stop at login, CAPTCHA, MFA, payment, or licensing barriers. Use a document-delivery service only in an existing permitted session.
-8. Import RIS and lawful PDFs into the configured Zotero parent/date collection only after the local API is confirmed available.
+8. Import RIS and lawful PDFs into the configured Zotero parent/date collection only after the local API is confirmed available. Create or verify the parent collection before the date subcollection; record imported item keys in the daily index and avoid repeat items after a failed retry. If the local API is unavailable, retain `references.ris` and clearly state that manual Zotero import is pending.
 9. Send the complete plain-text report in the Outlook email body only after authorization is available. Do not attach the report unless the user asks.
 
 ## Reporting rules
