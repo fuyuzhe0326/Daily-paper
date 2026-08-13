@@ -7,6 +7,23 @@ Output:
 >
 > 把前一天的高质量论文变成双语、可追溯、与研究方向直接相关的文献日报。
 
+
+## One-sentence install in Codex · 在 Codex 中一句话安装
+
+Open Codex and send this single sentence—no terminal or manual file copy is needed:
+
+```text
+请从 GitHub 仓库 fuyuzhe0326/Daily-paper 安装 daily-proppant-literature-brief skill。
+```
+
+English prompt:
+
+```text
+Install the daily-proppant-literature-brief skill from the GitHub repository fuyuzhe0326/Daily-paper.
+```
+
+After installation, send `使用 $daily-proppant-literature-brief 配置我的每日文献日报` to start the guided setup.
+
 [English](#english) · [中文](#中文) · [Zotero](#zotero-integration--zotero-联动) · [Quick start](#quick-start--快速开始) · [Try the demo](#try-a-working-demo--一键试运行) · [Contributing](#contributing--参与贡献)
 
 **Suggested GitHub topics:** `codex-skill` · `literature-review` · `research-automation` · `academic-research` · `zotero` · `outlook` · `bilingual`
@@ -133,7 +150,7 @@ Use my already-authorized Outlook connection and institutional access only.
 
 ### Install from GitHub · 从 GitHub 安装
 
-In Codex, ask to install this repository as a skill, or use the following command in a terminal with Python available:
+**Recommended:** copy the one-sentence prompt at the top of this README into Codex. If you prefer a terminal, use the following command with Python available:
 
 ```powershell
 python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --repo fuyuzhe0326/Daily-paper --path . --name daily-proppant-literature-brief
