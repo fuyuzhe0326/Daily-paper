@@ -1,0 +1,28 @@
+Exit code: 0
+Wall time: 0.5 seconds
+Output:
+name: Verify demo
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run built-in checks
+        run: python scripts/daily_digest.py --self-test
+      - name: Generate and inspect the demo archive
+        run: |
+          python scripts/daily_digest.py --input examples/demo_candidates.json --run-date 2026-08-13 --archive-root demo-output --recipient demo@example.edu
+          test -f demo-output/2026-08-13/daily_report.txt
+          test -f demo-output/2026-08-13/references.ris
+          test -f demo-output/2026-08-13/daily_index.json
+          grep -q "Synthetic example: proppant placement" demo-output/2026-08-13/daily_report.txt
+          ! grep -q "Synthetic duplicate record" demo-output/2026-08-13/daily_report.txt
+
