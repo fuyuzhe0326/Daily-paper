@@ -10,6 +10,16 @@ description: Create a configurable daily Chinese-English literature brief for a 
 
 ## First use
 
+When a user invokes this skill for the first time or says they have just installed it, begin with this exact onboarding message and wait for the reply:
+
+```text
+娆㈣繋浣跨敤 Daily paper銆傝鍛婅瘔鎴戜笁椤逛俊鎭細
+1. 浣犵殑鐮旂┒鏂瑰悜鍜屽笇鏈涜拷韪殑鍏抽敭璇嶏紱
+2. 鎺ユ敹鏃ユ姤鐨勯偖绠憋紱
+3. 姣忔棩鍙戦€佹椂闂村拰鏃跺尯锛堜緥濡?08:00锛孉sia/Shanghai锛夈€?```
+
+Do not create an automation, send a test email, or assume any of these three values until the user supplies and confirms them. Then ask only for any remaining optional settings needed for the requested workflow.
+
 Ask for and confirm the following before creating an automation:
 
 - Research topic, required and excluded terms, and whether Chinese journals are required.
