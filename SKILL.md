@@ -1,0 +1,44 @@
+Exit code: 0
+Wall time: 0.6 seconds
+Output:
+---
+name: daily-proppant-literature-brief
+description: Create a configurable daily Chinese-English literature brief for a user-defined research topic. Use when Codex needs to discover previous-day papers, rank high-authority Chinese and English journals, archive RIS and a daily index, obtain lawful full text, import into Zotero, or email a literature digest at a user-selected local time.
+---
+
+# Configurable daily literature brief
+
+## First use
+
+Ask for and confirm the following before creating an automation:
+
+- Research topic, required and excluded terms, and whether Chinese journals are required.
+- Recipient email address.
+- Local time and IANA timezone for the daily digest.
+- Archive directory and Zotero parent collection name.
+- Whether an already-authorized Outlook connection is available.
+
+Never put these values, passwords, cookies, institutional account details, or tokens in this skill. Store only non-sensitive settings in a user-local configuration file.
+
+## Daily procedure
+
+1. Compute the preceding natural day in the configured timezone.
+2. Search Crossref and publisher metadata first, using the configured bilingual terms. Search Chinese databases only through an already-authorized institutional session.
+3. Retain peer-reviewed journal articles directly matching the configured topic. Verify the publisher's first online date; do not substitute issue or database dates.
+4. Rank by topic match, journal tier, method/result specificity, and lawful full-text availability. Retain A/B-tier journals by default and at most ten articles.
+5. For each retained record, provide title translation, authors, journal/type, a traceable JCR impact factor or clearly named proxy metric, DOI/publisher URL, source abstract, Chinese abstract translation, methods, findings, and a bounded statement of relevance to the configured topic.
+6. Run `scripts/daily_digest.py` with explicit `--archive-root` and `--recipient`, then inspect `daily_report.txt` and `references.ris`.
+7. Download only lawfully available OA PDFs. Use an existing institutional browser session only; stop at login, CAPTCHA, MFA, payment, or licensing barriers. Use a document-delivery service only in an existing permitted session.
+8. Import RIS and lawful PDFs into the configured Zotero parent/date collection only after the local API is confirmed available.
+9. Send the complete plain-text report in the Outlook email body only after authorization is available. Do not attach the report unless the user asks.
+
+## Reporting rules
+
+- Separate English and Chinese journal records; give English title plus Chinese title, then English abstract followed by Chinese translation.
+- Begin prose paragraphs with two full-width spaces and leave blank lines between records.
+- State zero results honestly; do not fill a day with older articles.
+- Mark unverified indexing/metrics, unavailable full text, and manual steps explicitly.
+- Do not claim a paper proves a mechanism beyond its reported methods and results.
+
+Read `references/workflow.md` for ranking and access rules. Use `scripts/daily_digest.py --self-test` to validate the bundled generator.
+
