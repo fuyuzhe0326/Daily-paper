@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.6 seconds
-Output:
 #!/usr/bin/env python3
 """Create a configurable dated literature report from normalized JSON."""
 from __future__ import annotations
@@ -66,7 +63,7 @@ def ris(records: list[dict[str, Any]]) -> str:
 
 def record_text(r: dict[str, Any], n: int) -> str:
     metric = f"{r.get('impact_metric', 'unavailable')}: {r.get('impact_value', 'unavailable')}" + (f" ({r['impact_year']})" if r.get("impact_year") else "")
-    return "\n".join([f"{n}. 鑻辨枃鏍囬锛歿r['title']}", f"銆€ 涓枃鏍囬瀵圭収锛歿r.get('chinese_title', '寰呯炕璇?)}", "", f"銆€ 鏈熷垔鍚嶇О锛歿r.get('journal', '鏈彁渚?)}", f"銆€ 鏈熷垔绫诲瀷鍙婃寚鏍囷細{r.get('journal_type', '鏈彁渚?)}锛泏metric}", f"銆€ 浣滆€咃細{'; '.join(r.get('authors', [])) or '鏈彁渚?}", f"銆€ 棣栨鍦ㄧ嚎鍙戣〃锛歿r.get('online_date', '鏈牳瀹?)}锛涙潵婧愶細{r.get('source', '鏈彁渚?)}", f"銆€ 璁烘枃閾炬帴锛歿r.get('url', '鏈彁渚?)}", "", "銆€ English abstract:", f"銆€銆€{r.get('abstract', '鏈彁渚?)}", "", "銆€ 涓枃鎽樿瀵圭収锛?, f"銆€銆€{r.get('chinese_summary', '寰呯炕璇?)}", "", f"銆€ 鏂规硶锛歿r.get('methods', '鎽樿鏈槑纭?)}", f"銆€ 涓昏鍙戠幇锛歿r.get('key_results', '鎽樿鏈槑纭?)}", f"銆€ 瀵规湰鐮旂┒鏂瑰悜鐨勬帹鍔細{r.get('advance', '寰呭垽瀹?)}", f"銆€ 鍏ㄦ枃鐘舵€侊細{r.get('fulltext_status', 'metadata_only')}"])
+    return "\n".join([f"{n}. 英文标题：{r['title']}", f"　 中文标题对照：{r.get('chinese_title', '待翻译')}", "", f"　 期刊名称：{r.get('journal', '未提供')}", f"　 期刊类型及指标：{r.get('journal_type', '未提供')}；{metric}", f"　 作者：{'; '.join(r.get('authors', [])) or '未提供'}", f"　 首次在线发表：{r.get('online_date', '未核实')}；来源：{r.get('source', '未提供')}", f"　 论文链接：{r.get('url', '未提供')}", "", "　 English abstract:", f"　　{r.get('abstract', '未提供')}", "", "　 中文摘要对照：", f"　　{r.get('chinese_summary', '待翻译')}", "", f"　 方法：{r.get('methods', '摘要未明确')}", f"　 主要发现：{r.get('key_results', '摘要未明确')}", f"　 对本研究方向的推动：{r.get('advance', '待判定')}", f"　 全文状态：{r.get('fulltext_status', 'metadata_only')}"])
 
 def source_status_text(statuses: list[dict[str, Any]]) -> str:
     rows = []
@@ -77,22 +74,22 @@ def source_status_text(statuses: list[dict[str, Any]]) -> str:
         hits = status.get("raw_hit_count")
         if hits is not None:
             detail = f"{detail} Raw hits: {hits}.".strip()
-        rows.append(f"銆€{status['source']}锛歿status.get('status', 'not_run')}锛泏detail}".rstrip("锛?))
+        rows.append(f"　{status['source']}：{status.get('status', 'not_run')}；{detail}".rstrip("；"))
     return "\n".join(rows)
 
 def report(run_date: str, recipient: str, records: list[dict[str, Any]], statuses: list[dict[str, Any]]) -> str:
     english = [r for r in records if str(r.get("language", "")).lower().startswith("en")]
     chinese = [r for r in records if r not in english]
-    lines = [f"鏂囩尞鏃ユ姤 | {run_date}", "", f"鏀朵欢浜猴細{recipient}", "", "浠婃棩鐮旂┒杩涘睍", "", "鏈彂鐜扮鍚堟潯浠剁殑鍓嶄竴鏃ラ娆″湪绾垮彂琛ㄨ鏂囥€? if not records else "鏈棩鎶ヤ粎鎹鏂囧厓鏁版嵁涓庢憳瑕佹鎷紱鏈哄埗鎬х粨璁轰互鍘熸枃涓哄噯銆?]
-    lines += ["", "涓枃鏉ユ簮妫€绱㈢姸鎬?, "", source_status_text(statuses)]
-    for label, group in (("鑻辨枃鏈熷垔", english), ("涓枃鏈熷垔", chinese)):
-        if label == "涓枃鏈熷垔" and not group and not chinese_search_complete(statuses):
-            empty = "涓枃妫€绱㈡湭瀹屾垚锛屼笉鑳芥嵁姝ゅ垽鏂棤涓枃鏂囩尞銆傝鏌ョ湅涓婃柟鏉ユ簮鐘舵€佸苟鍦ㄥ凡鎺堟潈瀛︽牎浼氳瘽涓畬鎴愭绱€?
+    lines = [f"文献日报 | {run_date}", "", f"收件人：{recipient}", "", "今日研究进展", "", "未发现符合条件的前一日首次在线发表论文。" if not records else "本日报仅据论文元数据与摘要概括；机制性结论以原文为准。"]
+    lines += ["", "中文来源检索状态", "", source_status_text(statuses)]
+    for label, group in (("英文期刊", english), ("中文期刊", chinese)):
+        if label == "中文期刊" and not group and not chinese_search_complete(statuses):
+            empty = "中文检索未完成，不能据此判断无中文文献。请查看上方来源状态并在已授权学校会话中完成检索。"
         else:
-            empty = "鏃犵鍚堟潯浠惰褰曘€?
+            empty = "无符合条件记录。"
         lines += ["", label, "", empty if not group else "\n\n".join(record_text(r, i + 1) for i, r in enumerate(group))]
     pending = [r for r in records if r.get("fulltext_status") not in {"open_access_downloaded", "school_downloaded"}]
-    lines += ["", "寰呭鐞嗗叏鏂?, "", "鏃犮€? if not pending else "\n".join(f"{r['title']}锛歿r.get('fulltext_status', 'manual_required')}锛泏r.get('school_access_url') or r.get('open_access_url') or r.get('url', '鏈彁渚涢摼鎺?)}" for r in pending)]
+    lines += ["", "待处理全文", "", "无。" if not pending else "\n".join(f"{r['title']}：{r.get('fulltext_status', 'manual_required')}；{r.get('school_access_url') or r.get('open_access_url') or r.get('url', '未提供链接')}" for r in pending)]
     return "\n".join(lines) + "\n"
 
 def main() -> None:
