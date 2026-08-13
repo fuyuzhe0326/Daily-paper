@@ -1,0 +1,29 @@
+Exit code: 0
+Wall time: 0.6 seconds
+Output:
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1280" viewBox="0 0 1200 1280" role="img" aria-labelledby="title desc">
+  <title id="title">De-identified daily brief example</title>
+  <desc id="desc">A visual mockup of a bilingual literature email report with journal metric, research finding, access status, and impact on the user's research direction.</desc>
+  <rect width="1200" height="1280" fill="#f3f7f8"/>
+  <rect x="85" y="55" width="1030" height="1170" rx="26" fill="#fff" stroke="#d2e0e3" stroke-width="3"/>
+  <rect x="85" y="55" width="1030" height="118" rx="26" fill="#0b3954"/>
+  <text x="140" y="111" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="36" font-weight="700" fill="#fff">DAILY LITERATURE BRIEF</text>
+  <text x="140" y="148" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#cde8e8">DE-IDENTIFIED EXAMPLE · PLAIN-TEXT EMAIL FORMAT</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" fill="#183f53"><text x="140" y="225" font-size="27" font-weight="700">TODAY'S RESEARCH PROGRESS</text><text x="140" y="264" font-size="21">One high-tier record selected · zero-result days remain zero-result days</text></g>
+  <rect x="130" y="302" width="940" height="3" fill="#d2e0e3"/>
+  <text x="140" y="353" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700" fill="#168a8b">ENGLISH JOURNALS</text>
+  <text x="140" y="405" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700" fill="#0b3954">1. Investigation of key parameters controlling microfracture propagation</text>
+  <text x="140" y="443" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="23" fill="#405e6e">中文题名：控制页岩微裂缝扩展关键参数的研究</text>
+  <rect x="140" y="482" width="900" height="94" rx="14" fill="#eef7f6"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif"><text x="170" y="520" font-size="21" font-weight="700" fill="#0b3954">Journal</text><text x="170" y="553" font-size="21" fill="#183f53">International Journal of Coal Science &amp; Technology</text><text x="775" y="520" font-size="21" font-weight="700" fill="#0b3954">Metric</text><text x="775" y="553" font-size="21" fill="#183f53">SCI/SCIE Q1 · IF 10.1</text></g>
+  <text x="140" y="628" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700" fill="#0b3954">METHOD</text><text x="140" y="662" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" fill="#405e6e">Coupled DEM–FVM hydro-mechanical model across stress, kerogen geometry, and TOC cases.</text>
+  <text x="140" y="725" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700" fill="#0b3954">KEY FINDING</text><text x="140" y="759" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" fill="#405e6e">Stress range, kerogen spacing, and TOC threshold reshape microfracture connectivity.</text>
+  <rect x="140" y="805" width="900" height="190" rx="16" fill="#fff7ed" stroke="#f28c28" stroke-width="3"/>
+  <text x="170" y="851" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="23" font-weight="700" fill="#b85f0c">HOW THIS ADVANCES MY DIRECTION</text>
+  <text x="170" y="890" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#6e4a27">Not direct proppant-transport evidence. Use the reservoir-structure factors as</text><text x="170" y="922" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#6e4a27">fracture-geometry and flow-split inputs before separately modelling proppant placement.</text>
+  <text x="170" y="962" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#6e4a27">中文：为 CFD–DEM 支撑剂运移模型提供受证据约束的裂缝几何与分流输入。</text>
+  <rect x="140" y="1040" width="900" height="112" rx="14" fill="#f5f8fa"/>
+  <text x="170" y="1083" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" font-weight="700" fill="#0b3954">FULL-TEXT STATUS</text><text x="170" y="1121" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" fill="#405e6e">Institutional-session check required · no access-control bypass attempted</text>
+  <text x="140" y="1188" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" fill="#718793">Illustrative layout based on an actual workflow; personal email and credentials are omitted.</text>
+</svg>
+
