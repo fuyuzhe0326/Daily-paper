@@ -5,7 +5,7 @@ Output:
 
 > A configurable Codex skill that turns the previous day's high-quality literature into a bilingual, research-relevant email brief.
 
-![Daily paper workflow](assets/daily-paper-workflow.svg)
+![Daily paper workflow](https://raw.githubusercontent.com/fuyuzhe0326/Daily-paper/main/assets/daily-paper-workflow.svg)
 
 `Daily paper` searches the previous natural day's papers for **your own research direction**, ranks authoritative Chinese and English journals, creates a dated archive and RIS file, optionally imports lawfully available full text into Zotero, and emails a readable plain-text report.
 
@@ -18,11 +18,15 @@ Output:
 
 ## Example from a real run (de-identified)
 
+![De-identified daily brief example](https://raw.githubusercontent.com/fuyuzhe0326/Daily-paper/main/assets/example-daily-brief.svg)
+
 The workflow was used for a petroleum hydraulic-fracturing/proppant-transport topic across nine consecutive dated runs. It created one self-contained archive folder on each run: seven days contained a selected high-tier English record, while two days truthfully reported no qualifying new record instead of padding the brief with older papers.
 
 One selected paper used a coupled DEM–FVM model to study how differential stress, kerogen geometry, and TOC shape shale microfracture connectivity. The report did not overstate it as a proppant-transport result. Instead, it explained the practical bridge: use those reservoir-structure factors as fracture-geometry and flow-split inputs for a CFD–DEM proppant-transport model, then validate the particle behavior separately. Its publisher page was marked for a lawful institutional-access check rather than attempting to bypass access controls.
 
 This is the intended experience: a compact daily answer to **what was published, what it says, whether it is accessible, and what it changes for my next research decision**.
+
+[Open the full-size example image](https://github.com/fuyuzhe0326/Daily-paper/blob/main/assets/example-daily-brief.svg)
 
 ## Install
 
