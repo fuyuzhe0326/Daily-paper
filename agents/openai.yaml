@@ -1,0 +1,8 @@
+Exit code: 0
+Wall time: 0.6 seconds
+Output:
+interface:
+  display_name: "姣忔棩鏂囩尞鏃ユ姤"
+  short_description: "涓轰换鎰忕爺绌舵柟鍚戠敓鎴愬彲閰嶇疆鐨勫弻璇枃鐚棩鎶?
+  default_prompt: "Use $daily-proppant-literature-brief to configure a daily literature brief for my research topic, email, and timezone."
+
