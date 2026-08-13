@@ -1,10 +1,10 @@
 Exit code: 0
-Wall time: 0.6 seconds
+Wall time: 0.7 seconds
 Output:
 interface:
   display_name: "Daily paper"
   short_description: "Configurable bilingual daily literature brief"
   icon_large: "./assets/daily-paper-workflow.svg"
   brand_color: "#0B3954"
-  default_prompt: "Use $daily-proppant-literature-brief to configure a daily literature brief for my research topic and email."
+  default_prompt: "浣跨敤 $daily-proppant-literature-brief 鍒涘缓姣忔棩鏂囩尞鏃ユ姤锛屽苟鍏堣闂垜鐨勭爺绌舵柟鍚戙€佹敹浠堕偖绠卞拰姣忔棩鍙戦€佹椂闂淬€?
 
