@@ -1,5 +1,5 @@
 Exit code: 0
-Wall time: 0.8 seconds
+Wall time: 0.6 seconds
 Output:
 # Daily paper · 每日文献日报
 
@@ -7,7 +7,7 @@ Output:
 >
 > 把前一天的高质量论文变成双语、可追溯、与研究方向直接相关的文献日报。
 
-[English](#english) · [中文](#中文) · [Zotero](#zotero-integration--zotero-联动) · [Quick start](#quick-start--快速开始) · [Contributing](#contributing--参与贡献)
+[English](#english) · [中文](#中文) · [Zotero](#zotero-integration--zotero-联动) · [Quick start](#quick-start--快速开始) · [Try the demo](#try-a-working-demo--一键试运行) · [Contributing](#contributing--参与贡献)
 
 **Suggested GitHub topics:** `codex-skill` · `literature-review` · `research-automation` · `academic-research` · `zotero` · `outlook` · `bilingual`
 
@@ -131,10 +131,19 @@ Use my already-authorized Outlook connection and institutional access only.
 
 ## Quick start · 快速开始
 
-1. Download or clone this repository.
-2. Place its contents at `~/.codex/skills/daily-proppant-literature-brief/`.
-3. Restart or refresh Codex skills.
-4. Send the following prompt, replacing the brackets:
+### Install from GitHub · 从 GitHub 安装
+
+In Codex, ask to install this repository as a skill, or use the following command in a terminal with Python available:
+
+```powershell
+python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --repo fuyuzhe0326/Daily-paper --path . --name daily-proppant-literature-brief
+```
+
+If your installer version does not accept repository root `--path .`, download or clone the repository and place its contents at `~/.codex/skills/daily-proppant-literature-brief/`. Restart or refresh Codex skills afterwards.
+
+### Configure the skill · 配置技能
+
+Send the following prompt, replacing the brackets:
 
 ```text
 Use $daily-proppant-literature-brief to configure a daily literature brief.
@@ -148,6 +157,31 @@ Use my already-authorized Outlook connection and already-authorized institutiona
 ```
 
 Codex should confirm your settings, send a test email, then enable the schedule. The skill creates the archive and RIS automatically; no separate export-time setting is required.
+
+## Try a working demo · 一键试运行
+
+No email, Zotero, account, or network authorization is needed for this demo. It uses synthetic metadata to prove the repository can generate a dated report, RIS file, and machine-readable index.
+
+```powershell
+python scripts/daily_digest.py --input examples/demo_candidates.json --run-date 2026-08-13 --archive-root demo-output --recipient demo@example.edu
+```
+
+Expected output:
+
+```text
+demo-output/
+└── 2026-08-13/
+    ├── candidates.json
+    ├── daily_index.json
+    ├── daily_report.txt
+    └── references.ris
+```
+
+The sample deliberately contains a duplicate DOI and an out-of-date record. The generated report should retain only the higher-ranked, in-date record. For a quick built-in check:
+
+```powershell
+python scripts/daily_digest.py --self-test
+```
 
 ## What it delivers · 每日交付内容
 
@@ -186,6 +220,10 @@ Do not submit account credentials, copyrighted full text, or workflows intended 
 ## License
 
 Released under the [MIT License](LICENSE).
+
+## Release notes
+
+See [v0.1.0](CHANGELOG.md#v010---2026-08-14) for the first public, reproducible release: configurable daily selection, bilingual reports, RIS/daily-index archive, lawful-access boundaries, and Zotero-ready workflow documentation.
 
 ## English
 
