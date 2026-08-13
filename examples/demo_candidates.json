@@ -1,0 +1,49 @@
+Exit code: 0
+Wall time: 0.6 seconds
+Output:
+{
+  "records": [
+    {
+      "title": "Synthetic example: proppant placement in a branched fracture",
+      "chinese_title": "合成示例：分支裂缝中的支撑剂铺置",
+      "language": "en",
+      "authors": ["Demo Author", "Example Researcher"],
+      "journal": "Journal of Demonstration Studies",
+      "journal_type": "Synthetic example only",
+      "online_date": "2026-08-13",
+      "doi": "10.0000/daily-paper-demo",
+      "url": "https://example.org/daily-paper-demo",
+      "tier": "A",
+      "topic_score": 90,
+      "method_score": 8,
+      "access_score": 3,
+      "impact_metric": "demo metric",
+      "impact_value": "N/A",
+      "impact_year": "",
+      "source": "Synthetic test fixture; not a real publication",
+      "abstract": "Synthetic abstract used only to demonstrate report generation.",
+      "chinese_summary": "仅用于演示日报生成的合成摘要。",
+      "methods": "Synthetic test fixture.",
+      "key_results": "Demonstrates date filtering and report fields.",
+      "advance": "Demonstrates how a research-direction impact statement appears in the report.",
+      "fulltext_status": "metadata_only"
+    },
+    {
+      "title": "Synthetic duplicate record",
+      "language": "en",
+      "online_date": "2026-08-13",
+      "doi": "https://doi.org/10.0000/daily-paper-demo",
+      "tier": "B",
+      "topic_score": 20
+    },
+    {
+      "title": "Synthetic out-of-date record",
+      "language": "en",
+      "online_date": "2026-08-12",
+      "doi": "10.0000/daily-paper-old",
+      "tier": "A",
+      "topic_score": 100
+    }
+  ]
+}
+
