@@ -14,7 +14,6 @@ Ask for and confirm the following before creating an automation:
 
 - Research topic, required and excluded terms, and whether Chinese journals are required.
 - Recipient email address.
-- Local time and IANA timezone for the daily digest.
 - Archive directory and Zotero parent collection name.
 - Whether an already-authorized Outlook connection is available.
 
@@ -41,4 +40,6 @@ Never put these values, passwords, cookies, institutional account details, or to
 - Do not claim a paper proves a mechanism beyond its reported methods and results.
 
 Read `references/workflow.md` for ranking and access rules. Use `scripts/daily_digest.py --self-test` to validate the bundled generator.
+
+Read `references/example-output.md` only when the user asks what a finished brief looks like. Keep examples de-identified and distinguish direct study evidence from a proposed application to the user's direction.
 
